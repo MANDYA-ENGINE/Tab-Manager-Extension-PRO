@@ -1,36 +1,35 @@
 {
-  "manifest_version": 3,
-  "name": "Tab Manager Extension",
-  "version": "2.0",
-  "description": "Manage your tabs in workspaces",
+  "manifest_version": 2,
+  "name": "Tab Manager Extension PRO",
+  "version": "1.0",
+  "description": "Manage browser tabs in workspaces efficiently",
   "permissions": [
-    "tabs",
-    "activeTab",
-    "scripting",
-    "storage"
+      "tabs",
+      "storage",
+      "activeTab"
   ],
-  "action": {
-    "default_popup": "popup.html",
-    "default_icon": {
-      "16": "images/icon16.png",
-      "64": "images/icon64.png",
-      "128": "images/icon128.png",
-      "512": "images/icon512.png"
-    }
+  "background": {
+      "scripts": [
+          "background.js"
+      ],
+      "persistent": false
+  },
+  "browser_action": {
+      "default_popup": "popup.html",
+      "default_icon": "icon.png"
+  },
+  "commands": {
+      "_execute_browser_action": {
+          "suggested_key": {
+              "default": "Ctrl+Shift+Y",
+              "mac": "Command+Shift+Y"
+          },
+          "description": "Open the Tab Manager popup"
+      }
   },
   "icons": {
-    "16": "images/icon16.png",
-    "64": "images/icon64.png",
-    "128": "images/icon128.png",
-    "512": "images/icon512.png"
-  },
-  "content_security_policy": {
-    "extension_pages": "script-src 'self'; object-src 'self'" 
-  },
-  "web_accessible_resources": [
-      {
-          "resources": ["dashboard.html"],
-          "matches": ["<all_urls>"]
-      }
-  ]
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+  }
 }
